@@ -8,24 +8,18 @@ if __name__ == '__main__':
         opcion1 = int(input())
 
         if opcion1 == 1:
-            control.punto1()
-            print('¿Desea cambiar la contraseña?\1--SI\n2--NO')
+            unEmail = control.punto1()                              # Crea instancia de la clase Email
+            print('¿Desea cambiar la contraseña?\n1--SI\n2--NO')
             opcion2 = int(input())
             if opcion2 == 1:
-                control.punto2()
-                print('\n')
-                input('Presione cualquier tecla para continuar.')
+                control.punto2(unEmail)                             # Cambia contraseña de la instancia creada
+                input('Presione cualquier tecla para continuar.\n')
             else:
                 print('No se modificará la contraseña\n')
-                input('Presione cualquier tecla para continuar.')
-"""        if opcion1 == 2:
-
-
-   INCISO 2
-    print('\n\n¿Desea cambiar la contraseña?\n0--SI\n1--NO')
-    op = input()
-    if op == '0':
-        print('Se cambiará la contraseña.')
-    else:
-        print('No se cambiará la contraseña.')
-"""
+                input('Presione cualquier tecla para continuar.\n')
+        if opcion1 == 2:
+            print('Ingrese un email para modificar la contraseña:')
+            correo = str(input())
+            unEmail = control.getMail(correo)                       # Devuelve el objeto de la clase Email correspondiente
+            control.punto2(unEmail)
+#            control.leerlista()                                    VERIFICACION DEL CAMBIO DE CONTRASEÑA
