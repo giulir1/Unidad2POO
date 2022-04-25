@@ -26,3 +26,6 @@ class Email:
 
     def cambiarContrasena(self, nuevaContra):
         self.__contrasena = nuevaContra
+
+    def getContrasena(self):
+        return self.__contrasena
