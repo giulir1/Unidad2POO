@@ -40,9 +40,8 @@ class controlEmail:
                 print('Contraseña cambiada con éxito.')
 
     def punto3(self, email, contra):
-        str1 = email.split('@', 1)
-        str2 = str1[1].split('.', 1)
-        otroEmail = Email(str1[0], str2[0], str2[1], contra)
+        otroEmail = Email()
+        otroEmail.crearCuenta(email, contra)
         self.__lista.append(otroEmail)
 
     def punto4(self, idCorreo):
