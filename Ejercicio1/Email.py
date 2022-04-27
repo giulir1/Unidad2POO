@@ -29,3 +29,6 @@ class Email:
 
     def getContrasena(self):
         return self.__contrasena
+
+    def getID(self):
+        return self.__idCuenta
