@@ -6,10 +6,6 @@ if __name__ == '__main__':
     control.leerarchivo()
     print('ARCHIVO LEIDO\n\n')
     opcion = input('1 - Cambiar valor de plan\n2 - Comparar valor de cuota\n3 - Mostrar precio de licitación\n4 - Modificar cuotas para licitación\n5 - Mostrar lista (prueba)\n0 - SALIR\nOpción: ')
-    while (opcion != '0') and (opcion != '1') and (opcion != '2') and (opcion != '3') and (opcion != '4') and (opcion != '5'):
-        print('ERROR. Ingrese una opción válida.')
-        opcion = input('1 - Cambiar valor de plan\n2 - Comparar valor de cuota\n3 - Mostrar precio de licitación\n4 - Modificar cuotas para licitación\n5 - Mostrar lista (prueba)\n0 - SALIR\nOpción: ')
-
     while opcion != '0':
         if opcion == '1':
             control.listarPlanes(9999999)    # lista los planes, 9999999 es para que muestre todos los planes
@@ -42,10 +38,16 @@ if __name__ == '__main__':
                 input('No se encontró el plan correspondiente al código ingresado. Presione enter para volver al menú.\n')
 
         elif opcion == '4':
-            pass
+            print('Modificar cantidad de cuotas para licitar un plan. NOTA: se modifica para todos los planes.')
+            indice2 = control.buscar()
+            if type(indice2) == int:
+                control.cambiarCuotasLicitacion(indice2)
+                input('Cantidad de cuotas necesarias para licitar actualizadas.\nPresione enter para volver al menú.\n')
+            else:
+                input('No se encontró el plan correspondiente al código ingresado. Presione enter para volver al menú.\n')
         elif opcion == '5':
             control.mostrar()
         else:
-            print('ERROR. Ingrese una opción válida.')
+            print('ERROR. Ingrese una opción válida.\n')
 
         opcion = input('1 - Cambiar valor de plan\n2 - Comparar valor de cuota\n3 - Mostrar precio de licitación\n4 - Modificar cuotas para licitación\n5 - Mostrar lista (prueba)\n0 - SALIR\nOpción: ')
