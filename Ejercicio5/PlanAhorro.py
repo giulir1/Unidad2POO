@@ -36,4 +36,8 @@ class PlanAhorro:
 
     @classmethod
     def getCuotasLicitacion(cls):
-        return cls.cuotasLicitacion
+        return int(cls.cuotasLicitacion)
+
+    @classmethod
+    def cambiarCuotasLicitacion(cls, nuevaCantidad):
+        cls.cuotasLicitacion = nuevaCantidad
