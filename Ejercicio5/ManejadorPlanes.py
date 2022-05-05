@@ -47,8 +47,18 @@ class manejador:
         for i in self.__lista:
             print(i)
 
-    def montoLicitacion(self, indice):
+    def montoLicitacion(self, indice):  # devuelve el monto necesario para licitar
         return self.__lista[indice].getCuotasLicitacion() * self.__lista[indice].calculoCuota(self.__lista[indice].getCantidadCuotas())
 
-    def obtenerCuotasLicitacion(self, indice):
+    def obtenerCuotasLicitacion(self, indice):  # devuelve la cantidad de cuotas necesarias para licitar
         return self.__lista[indice].getCuotasLicitacion()
+  
+    def cambiarCuotasLicitacion(self, indice):  # cambia la cantidad de cuotas necesarias para licitar
+        try:
+            cant = int(input('Ingrese una nueva cantidad de cuotas para licitar: '))
+            if cant <= self.__lista[indice].getCantidadCuotas():    # si el numero ingresado es menor a la cantidad de cuotas realiza el cambio
+                self.__lista[indice].cambiarCuotasLicitacion(cant)
+            else:
+                input('ERROR. La cantidad de cuotas necesarias para licitar debe ser menor a la cantidad de cuotas del plan.\nPresione enter para volver al menú\n')
+        except ValueError:
+            input('ERROR. Debe ingresar un número válido. Presione enter para volver al menú.\n')
